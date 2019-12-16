@@ -1,12 +1,11 @@
 cask 'ao' do
-  version '5.5.0'
-  sha256 '38e214c9b724cb4c3ca169d05d0bdb9f361d368a11ba6fbe1836d27e3a5c66f6'
+  version '6.9.0'
+  sha256 'c69522f78e82476540637fd3a2ab0c9de1e911530a1eb88c9cf757e933debe0e'
 
-  url "https://github.com/klauscfhq/ao/releases/download/v#{version}/ao-macos-#{version}.dmg"
-  appcast 'https://github.com/klauscfhq/ao/releases.atom',
-          checkpoint: '00c1a110fdd709464d6a38dd869e3db91adb28c5a41dde4d339c9821271ba906'
+  url "https://github.com/klaussinani/ao/releases/download/v#{version}/Ao-#{version}.dmg"
+  appcast 'https://github.com/klaussinani/ao/releases.atom'
   name 'Ao'
-  homepage 'https://github.com/klauscfhq/ao'
+  homepage 'https://github.com/klaussinani/ao'
 
   app 'Ao.app'
 end

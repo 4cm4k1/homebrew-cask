@@ -1,12 +1,13 @@
 cask 'unlox' do
-  version '2.0.2.1'
-  sha256 '20a5fa4b1120f23b99a8ee3171d06c6a3e75797a40216e7e480f860ff19d3da0'
+  version '3.0.3.0'
+  sha256 'fe902c69b517c24714dabdb3fcbe68bfb8b86ee0e84e8ff9fb3eabd6f2c781a7'
 
   url 'https://unlox.it/download/'
-  appcast 'https://unlox.it/download/update.php',
-          checkpoint: '53e8b7889240d0ee4114abc3e4219f668046eb62621e532aa21039ab32639a54'
+  appcast 'https://unlox.it/download/update.php'
   name 'Unlox'
   homepage 'https://unlox.it/get'
+
+  depends_on macos: '>= :high_sierra'
 
   app 'Unlox.app'
 end

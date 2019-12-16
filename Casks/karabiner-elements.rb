@@ -1,15 +1,19 @@
 cask 'karabiner-elements' do
-  version '12.0.0'
-  sha256 '605aa1309aa88a4d4f78d3522cf920518ac97cdac58efea23e8b76f8d84c1c28'
+  if MacOS.version == :el_capitan
+    version '11.6.0'
+    sha256 'c1b06252ecc42cdd8051eb3d606050ee47b04532629293245ffdfa01bbc2430d'
+  else
+    version '12.8.0'
+    sha256 '8568c512385e7eb0573a35efb2c38ff2f7b3a2366345411a9d5d93ce8a9bf155'
+  end
 
   url "https://pqrs.org/osx/karabiner/files/Karabiner-Elements-#{version}.dmg"
-  appcast 'https://pqrs.org/osx/karabiner/files/karabiner-elements-appcast.xml',
-          checkpoint: '68423ac36a0466c083fb81ddc5501d7707d614dbcd9e6ea40720a07f4ad681e0'
+  appcast 'https://pqrs.org/osx/karabiner/files/karabiner-elements-appcast.xml'
   name 'Karabiner Elements'
   homepage 'https://pqrs.org/osx/karabiner/'
 
   auto_updates true
-  depends_on macos: '>= :sierra'
+  depends_on macos: '>= :el_capitan'
 
   pkg 'Karabiner-Elements.sparkle_guided.pkg'
 

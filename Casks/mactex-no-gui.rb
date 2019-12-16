@@ -1,11 +1,10 @@
 cask 'mactex-no-gui' do
-  version '20170524'
-  sha256 '0caf76027c9e0534a0b636f2b880ace4a0463105a7ad5774ccacede761be8c2d'
+  version '2019.0508'
+  sha256 'ce6fa6d3ec5a4058d5889cfc36bf634fd8a5aefb6601d10c853e5f5d76455f4a'
 
   # mirror.ctan.org/systems/mac/mactex was verified as official when first introduced to the cask
-  url "http://mirror.ctan.org/systems/mac/mactex/mactex-#{version}.pkg"
-  appcast 'https://www.tug.org/mactex/downloading.html',
-          checkpoint: '2dd3e7c71fe586512a5241f2b26c24f93af3510d2bda2f56da1a404098b894ee'
+  url "http://mirror.ctan.org/systems/mac/mactex/mactex-#{version.no_dots}.pkg"
+  appcast 'https://www.tug.org/mactex/downloading.html'
   name 'MacTeX'
   homepage 'https://www.tug.org/mactex/'
 
@@ -14,9 +13,9 @@ cask 'mactex-no-gui' do
                          'mactex',
                        ]
   depends_on formula: 'ghostscript'
-  depends_on macos: '>= :yosemite'
+  depends_on macos: '>= :sierra'
 
-  pkg "mactex-#{version}.pkg",
+  pkg "mactex-#{version.no_dots}.pkg",
       choices: [
                  {
                    # TeXLive
@@ -38,10 +37,9 @@ cask 'mactex-no-gui' do
                  },
                ]
 
-  uninstall pkgutil: 'org.tug.mactex.texlive2017',
+  uninstall pkgutil: "org.tug.mactex.texlive#{version.major}",
             delete:  [
-                       '/usr/local/texlive/2017',
-                       '/Library/PreferencePanes/TeXDistPrefPane.prefPane',
+                       "/usr/local/texlive/#{version.major}",
                        '/Library/TeX',
                        '/etc/paths.d/TeX',
                        '/etc/manpaths.d/TeX',
@@ -49,7 +47,7 @@ cask 'mactex-no-gui' do
 
   zap trash: [
                '/usr/local/texlive/texmf-local',
-               '~/Library/texlive/2017',
+               "~/Library/texlive/#{version.major}",
              ],
       rmdir: [
                '/usr/local/texlive',

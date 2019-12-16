@@ -1,17 +1,18 @@
 cask 'lrtimelapse' do
-  version '4.7.6'
-  sha256 '6555e671a6276132ceecc6ef8ba63c41ea62c1acc010549f9ae77b4a9fbe60f0'
+  version '5.3.2'
+  sha256 'dabbad9d6bb1c0bd6e934a10f20bea0212289bef16320a171564465bee43ab10'
 
-  url "https://lrtimelapse.com/files/lrtimelapse-#{version.dots_to_hyphens}-mac/"
+  url "https://lrtimelapse.com/files/lrtimelapse-#{version.major}-mac/"
+  appcast 'https://lrtimelapse.com/download/'
   name 'LRTimelapse'
   homepage 'https://lrtimelapse.com/'
 
-  pkg "LRTimelapse #{version} Installer.pkg"
+  pkg 'LRTimelapse  Installer.pkg'
 
   uninstall script:  'Uninstall LRTimelapse.command',
             pkgutil: [
                        'com.lrtimelapse.LRAddons',
-                       'com.lrtimelapse.LRTimelapse4',
+                       "com.lrtimelapse.LRTimelapse#{version.major}",
                        'com.lrttimelapse.LRTTools',
                      ]
 end

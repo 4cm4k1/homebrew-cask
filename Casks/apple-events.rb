@@ -1,10 +1,9 @@
 cask 'apple-events' do
-  version '1.0'
-  sha256 'd2daa6a298d9037b2d073b3857dd4d7d55152d93d3074417d191f94f7ca4f4db'
+  version '1.6'
+  sha256 '00dee705888f2e7f8f036afe06bafb7d70042bd1eaa1bdf93146fddb63bc8e76'
 
   url "https://github.com/insidegui/AppleEvents/releases/download/#{version}/AppleEvents_v#{version}.zip"
-  appcast 'https://github.com/insidegui/AppleEvents/releases.atom',
-          checkpoint: '093a310cac1abdb64ee3e152747c5b571474f937398af8caaca01fcc8f022db9'
+  appcast 'https://github.com/insidegui/AppleEvents/releases.atom'
   name 'Apple Events'
   homepage 'https://github.com/insidegui/AppleEvents'
 

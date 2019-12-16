@@ -1,10 +1,15 @@
 cask 'vesta' do
-  version '3.4.4'
-  sha256 '8f05abc5b2ff8a636e9a82fe649490838088805d9a32158b1b282f7ba5cd0bb2'
+  version '3.4.7'
+  sha256 '77f7d6fbe19b294489da75eb987c7dff37846ea357d702414a803339ac0557db'
 
-  url "http://jp-minerals.org/vesta/archives/#{version}/VESTA.dmg"
+  url "https://jp-minerals.org/vesta/archives/#{version}/VESTA.dmg"
   name 'VESTA'
-  homepage 'http://jp-minerals.org/vesta/en/'
+  homepage 'https://jp-minerals.org/vesta/en/'
 
   app 'VESTA/VESTA.app'
+
+  zap trash: [
+               '~/Library/Application Support/VESTA',
+               '~/LibraryPreferences/VESTA.plist',
+             ]
 end

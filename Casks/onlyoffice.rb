@@ -1,10 +1,9 @@
 cask 'onlyoffice' do
-  version '4.8.8'
-  sha256 'bdaeac372b42920f6b6d0523d833aab3681adcd87b3d2bac589304d6111ba7b7'
+  version '5.4.2'
+  sha256 '88bd9b6bfa4e2121c02702fb53e64a495b569512f0d118e1238ee255f2315da4'
 
-  url "http://download.onlyoffice.com/install/desktop/editors/mac/updates/onlyoffice/ONLYOFFICE-#{version}.zip"
-  appcast 'http://download.onlyoffice.com/install/desktop/editors/mac/onlyoffice.xml',
-          checkpoint: 'ee4031cd3c52d4a2605f87ebfcba8afb3b4a8ef20f9c8a6b255702f703c2b1ee'
+  url "https://download.onlyoffice.com/install/desktop/editors/mac/updates/onlyoffice/ONLYOFFICE-#{version}.zip"
+  appcast 'https://download.onlyoffice.com/install/desktop/editors/mac/onlyoffice.xml'
   name 'ONLYOFFICE'
   homepage 'https://www.onlyoffice.com/'
 

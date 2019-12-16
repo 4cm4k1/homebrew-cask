@@ -1,12 +1,13 @@
 cask 'clip-studio-paint' do
-  version '1.6.7'
-  sha256 '113f1f7ea446a218403b5355876aac4bed169538236d1f5113c9a82c287d203f'
+  version '1.9.5'
+  sha256 'b9f0c537a6eb7b4134971f03a2fe8f3afdee4d195ca121cb3a75cd7fa27f34be'
 
-  url "http://vd.clipstudio.net/clipcontent/paint/app/#{version.no_dots}/CSP_#{version.no_dots}m_app.pkg"
+  url "https://vd.clipstudio.net/clipcontent/paint/app/#{version.no_dots}/CSP_#{version.no_dots}m_app.pkg"
+  appcast 'https://www.clipstudio.net/en/dl'
   name 'CLIP STUDIO PAINT'
-  homepage 'http://www.clipstudio.net/en'
+  homepage 'https://www.clipstudio.net/en'
 
-  pkg "CSP_#{version.no_dots}m_app.pkg"
+  installer manual: "CSP_#{version.no_dots}m_app.pkg"
 
   uninstall pkgutil: [
                        'jp.co.CELSYS.AggregateMdul.*',

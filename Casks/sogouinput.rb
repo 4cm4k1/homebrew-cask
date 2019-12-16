@@ -1,13 +1,13 @@
 cask 'sogouinput' do
-  version '46b,1519980135'
-  sha256 '63c8d2fef4d54ef5c72dffd573c0be89efa518d94373b88debb30cb7ac97191b'
+  version '56b,1574950329'
+  sha256 'd7016d8ead153cd04a0d88c6fb18b5d6ad4ddd5f9c86708891c133593798d81b'
 
-  url "http://cdn2.ime.sogou.com/dl/index/#{version.after_comma}/sogou_mac_#{version.before_comma}.dmg"
+  url "http://cdn2.ime.sogou.com/dl/index/#{version.after_comma}/sogou_mac_#{version.before_comma}.zip"
   name 'Sogou Input Method'
   name '搜狗输入法'
   homepage 'https://pinyin.sogou.com/mac/'
 
-  installer manual: '安装搜狗输入法.app'
+  installer manual: "sogou_mac_#{version.before_comma}.app"
 
   uninstall delete:    [
                          '/Library/Input Methods/SogouInput.app',

@@ -1,11 +1,10 @@
 cask 'mark-text' do
-  version '0.10.21'
-  sha256 'c65b64c46ce30d522608927a827417e37687f0cee7c96570ac942bb1c2b0cd36'
+  version '0.15.1'
+  sha256 '92a5582782c2f3de0b61ebdd265da264ffaa798521130ca43fad9d6ae0711439'
 
   # github.com/marktext/marktext was verified as official when first introduced to the cask
   url "https://github.com/marktext/marktext/releases/download/v#{version}/marktext-#{version}.dmg"
-  appcast 'https://github.com/marktext/marktext/releases.atom',
-          checkpoint: '93a9a60b21bfc925c2165b8832a5559553d6cc079c177b3b55c104268aab82c6'
+  appcast 'https://github.com/marktext/marktext/releases.atom'
   name 'Mark Text'
   homepage 'https://marktext.github.io/website/'
 

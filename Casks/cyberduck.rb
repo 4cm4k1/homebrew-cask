@@ -1,10 +1,9 @@
 cask 'cyberduck' do
-  version '6.4.6.27773'
-  sha256 'a3d43d37d75f6f6c93c4af84e93e1cd3d8ff64ec224730b454482e8b3ec9025c'
+  version '7.2.2.32045'
+  sha256 '0ba1ec2f8e5a6a1f95bd397b8647db5e045c92687c9b00380f7e9654d19c3a9a'
 
   url "https://update.cyberduck.io/Cyberduck-#{version}.zip"
-  appcast 'https://version.cyberduck.io/changelog.rss',
-          checkpoint: '50b75fd78b40d1d0b87c206565b6db346b979bcd24440f6fd56538a65ea6e212'
+  appcast 'https://version.cyberduck.io/changelog.rss'
   name 'Cyberduck'
   homepage 'https://cyberduck.io/'
 
@@ -16,5 +15,6 @@ cask 'cyberduck' do
                '~/Library/Application Support/Cyberduck',
                '~/Library/Caches/ch.sudo.cyberduck',
                '~/Library/Preferences/ch.sudo.cyberduck.plist',
+               '~/Library/Saved Application State/ch.sudo.cyberduck.savedState',
              ]
 end

@@ -1,12 +1,13 @@
 cask 'ultimate' do
-  version '3.0.9.320'
-  sha256 'ef6fefd87ecee86b33284dd5a2d2dbb26f61daea1804e7c2f55817ad94c8f1bc'
+  version '3.0.11.1025'
+  sha256 'cffb891540b4b338a1ac32e15a16eb3f44129983657f45bb0872105bd6029700'
 
-  url 'http://download.epubor.com/epubor_ultimate.zip'
+  url 'https://download.epubor.com/epubor_ultimate.zip'
+  appcast 'https://www.epubor.com/ultimate.html'
   name 'Ultimate Converter'
   homepage 'https://www.epubor.com/'
 
-  container nested: "epubor_ultimate/Ultimate_v#{version}.dmg"
+  pkg 'Ultimate.pkg'
 
-  app 'Ultimate.app'
+  uninstall pkgutil: 'EpuborStudioUltimate2'
 end

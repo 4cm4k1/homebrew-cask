@@ -1,12 +1,14 @@
 cask 'beatunes' do
-  version '5.1.4'
-  sha256 '4d1f1c6a32295d2796b453d2c46e03c41530729a306aa21126c0b5036b5489db'
+  version '5.2.2'
+  sha256 'd3e2e102898c651722e6c11c66b7da3d4e63af0942638ef2475904aef52c2f57'
 
   url "http://coxy.beatunes.com/download/beaTunes-#{version.dots_to_hyphens}.dmg"
+  appcast 'https://www.beatunes.com/en/beatunes-download.html',
+          configuration: version.dots_to_hyphens
   name 'beaTunes'
   homepage 'https://www.beatunes.com/'
 
-  depends_on macos: '>= :lion'
+  depends_on macos: '>= :sierra'
 
   app "beaTunes#{version.major}.app"
 

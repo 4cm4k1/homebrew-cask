@@ -1,18 +1,25 @@
 cask 'onedrive' do
-  version '18.065.9329.0005'
-  sha256 '11f0c62225a92107c60b5193c19c10669c24ab91326889ace8cad5dda7486c03'
+  version '19.192.0926.0012'
+  sha256 'b1907c8d2de6d43d8795d402d5c830607f593b7eef1acbd9535315b58ddd0eed'
 
   # oneclient.sfx.ms/Mac/Direct was verified as official when first introduced to the cask
   url "https://oneclient.sfx.ms/Mac/Direct/#{version}/OneDrive.pkg"
+  appcast 'https://macupdater.net/cgi-bin/check_urls/check_url_redirect.cgi?url=https://go.microsoft.com/fwlink/?LinkId=823060'
   name 'OneDrive'
   homepage 'https://onedrive.live.com/'
 
   auto_updates true
+  conflicts_with cask: 'microsot-office'
+  depends_on macos: '>= :sierra'
 
   pkg 'OneDrive.pkg'
 
   uninstall delete:    '/Applications/OneDrive.app',
-            launchctl: 'com.microsoft.OneDriveUpdaterDaemon',
+            launchctl: [
+                         'com.microsoft.OneDriveUpdaterDaemon',
+                         'com.microsoft.OneDriveStandaloneUpdater',
+                         'com.microsoft.OneDriveStandaloneUpdaterDaemon',
+                       ],
             pkgutil:   'com.microsoft.OneDrive',
             quit:      [
                          'com.microsoft.OneDrive',

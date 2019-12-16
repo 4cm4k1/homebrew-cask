@@ -1,10 +1,9 @@
 cask 'keybase' do
-  version '1.0.47-20180410052738,f705a9510f'
-  sha256 '1f919cc2ef8d52d9e54a0e0b31383e42c6142994304271e3ac8a20d0a3c18802'
+  version '5.1.1-20191211223249,15bbb94c23'
+  sha256 '4debcbdff7eee4a0106998268c28189cd1c974010f4fd42063be55bc45501ab3'
 
   url "https://prerelease.keybase.io/darwin-updates/Keybase-#{version.before_comma}%2B#{version.after_comma}.zip"
-  appcast 'https://prerelease.keybase.io/update-darwin-prod-v2.json',
-          checkpoint: '75b6d0ab6dfe8c1b1eaabe49cdee004320e2f9fd4579993c9795faae8f8c71e3'
+  appcast 'https://prerelease.keybase.io/update-darwin-prod-v2.json'
   name 'Keybase'
   homepage 'https://keybase.io/'
 
@@ -17,19 +16,18 @@ cask 'keybase' do
                    args: ['install-auto']
   end
 
-  uninstall delete:     '/Library/PrivilegedHelperTools/keybase.Helper',
-            launchctl:  'keybase.Helper',
-            login_item: 'Keybase',
-            signal:     [
-                          ['TERM', 'keybase.Electron'],
-                          ['TERM', 'keybase.ElectronHelper'],
-                          ['KILL', 'keybase.Electron'],
-                          ['KILL', 'keybase.ElectronHelper'],
-                        ],
-            script:     {
-                          executable: "#{appdir}/Keybase.app/Contents/SharedSupport/bin/keybase",
-                          args:       ['uninstall'],
-                        }
+  uninstall delete:    '/Library/PrivilegedHelperTools/keybase.Helper',
+            launchctl: 'keybase.Helper',
+            signal:    [
+                         ['TERM', 'keybase.Electron'],
+                         ['TERM', 'keybase.ElectronHelper'],
+                         ['KILL', 'keybase.Electron'],
+                         ['KILL', 'keybase.ElectronHelper'],
+                       ],
+            script:    {
+                         executable: "#{appdir}/Keybase.app/Contents/SharedSupport/bin/keybase",
+                         args:       ['uninstall'],
+                       }
 
   zap trash: [
                '~/Library/Application Support/Keybase',

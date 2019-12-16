@@ -1,11 +1,10 @@
 cask 'modelio' do
-  version '3.7.0'
-  sha256 '33b215ad7facf271d31b720cb1e69ee311d290e1997c60afc1edd35dc59ab4a3'
+  version '4.0.0'
+  sha256 'e902daa044d616e855cbeb0537cf9d85aaa6837a839aaf02759bb8e428e4ddb9'
 
   # sourceforge.net/modeliouml was verified as official when first introduced to the cask
   url "https://downloads.sourceforge.net/modeliouml/modelio-open-source-#{version}-macosx.cocoa.x86_64.tar.gz"
-  appcast 'https://sourceforge.net/projects/modeliouml/rss',
-          checkpoint: '49801a2d86031bb1d739039f4c4958c92d7661f0efc58c386897103b6b18c53a'
+  appcast 'https://sourceforge.net/projects/modeliouml/rss'
   name 'Modelio'
   homepage 'https://www.modelio.org/'
 

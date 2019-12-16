@@ -1,8 +1,9 @@
 cask 'xmind-zen' do
-  version 'Update1'
-  sha256 'f6fd76550af6f6251a100f468a03f9827e2b137127002804eed9d0a62aec2d1d'
+  version '10.0.0-201911180024'
+  sha256 '344b209c5ce399751aa7fafd3c8b313e5bf9d5f8da8208a55e7582d348627806'
 
-  url "http://dl3.xmind.net/XMind-ZEN-#{version}-for-macOS.zip"
+  url "http://dl2.xmind.net/xmind-downloads/XMind-ZEN-for-macOS-#{version}.dmg"
+  appcast 'https://www.xmind.net/download/'
   name 'XMind ZEN'
   homepage 'https://www.xmind.net/zen/'
 

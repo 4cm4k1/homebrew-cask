@@ -1,14 +1,16 @@
 cask 'visual-studio' do
-  version '7.4.3.10'
-  sha256 'd61c848fc115626251e65cbd06f7d0aa3f8d44c878ed64e2e9aae61c0495dd8c'
+  version '8.3.11.1'
+  sha256 '6b72ef2eb0065a23e27bd94a18103370fbe4f49870a22347de99aefc2bc85038'
 
   # dl.xamarin.com/VsMac was verified as official when first introduced to the cask
   url "https://dl.xamarin.com/VsMac/VisualStudioForMac-#{version}.dmg"
-  appcast 'https://xampubdl.blob.core.windows.net/static/installer_assets/v3/vsmac/Mac/Universal/InstallationManifest.xml',
-          checkpoint: '90e28111c98e8261b07800d9b33a6b09c6af8f51c315d5976a586bd4c922bc00'
+  appcast 'https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2019-mac-relnotes',
+          configuration: version.major_minor_patch
   name 'Visual Studio for Mac'
   homepage 'https://www.visualstudio.com/vs/visual-studio-mac/'
 
+  auto_updates true
+  depends_on macos: '>= :sierra'
   depends_on cask: 'mono-mdk'
 
   app 'Visual Studio.app'
@@ -16,10 +18,13 @@ cask 'visual-studio' do
   zap trash: [
                '/Applications/Xamarin Workbooks.app',
                '/Applications/Xamarin Profiler.app',
+               '~/Library/Application Support/VisualStudio',
                '~/Library/Application Support/CrashReporter/VisualStudio*',
                '~/Library/Caches/VisualStudio',
                '~/Library/Logs/VisualStudio',
                '~/Library/Preferences/Visual*Studio',
+               '~/Library/Preferences/Xamarin',
+               '~/Library/Developer/Xamarin',
                '~/Library/VisualStudio',
              ]
 end

@@ -1,14 +1,13 @@
 cask 'smartsvn' do
-  version '9.3.0'
-  sha256 '23d1b3b00513638330498cbac1ae0682efa6eb831210ccfa139ff25c2695433a'
+  version '11.0.3'
+  sha256 '5f1d4d0c84ed747d398b476aeeab90e5a188c312b77fbf548205caf7b18810a3'
 
   url "https://www.smartsvn.com/downloads/smartsvn/smartsvn-macosx-#{version.dots_to_underscores}.dmg"
-  appcast 'https://www.smartsvn.com/documents/smartsvn/changelog.txt',
-          checkpoint: '942f20a0363b7402291ef1e49e9c734e22d28557ed6767ccb3c7ce521a329432'
+  appcast 'https://www.smartsvn.com/documents/smartsvn/changelog.txt'
   name 'SmartSVN'
-  homepage 'http://www.smartsvn.com/'
+  homepage 'https://www.smartsvn.com/'
 
-  app "SmartSVN #{version.major_minor}.app"
+  app "SmartSVN #{version.major}.app"
 
   zap trash: [
                '~/Library/Preferences/com.syntevo.smartsvn.plist',

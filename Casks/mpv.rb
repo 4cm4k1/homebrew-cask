@@ -1,16 +1,18 @@
 cask 'mpv' do
-  version '0.28.2'
-  sha256 'a738c1cbfa997488087fc0263a3f8981c66816dba754bba09081d10df9cd72ed'
+  version '0.30.0'
+  sha256 '4de953b80554ebbe56a81d01c8f6c605a5c55b40b699ec55df95529d60d51a6b'
 
   # laboratory.stolendata.net/~djinn/mpv_osx was verified as official when first introduced to the cask
   url "https://laboratory.stolendata.net/~djinn/mpv_osx/mpv-#{version}.tar.gz"
-  appcast 'https://laboratory.stolendata.net/~djinn/mpv_osx/',
-          checkpoint: 'fe0ed3e95961933cd830d73bb3c45f0b2e13029b941c7135ddc9068ca89816c7'
+  appcast 'https://laboratory.stolendata.net/~djinn/mpv_osx/'
   name 'mpv'
   homepage 'https://mpv.io/'
 
+  depends_on macos: '>= :yosemite'
+
   app 'mpv.app'
   binary "#{appdir}/mpv.app/Contents/MacOS/mpv"
+  manpage 'documentation/man/mpv.1'
 
   zap trash: [
                '~/.config/mpv',

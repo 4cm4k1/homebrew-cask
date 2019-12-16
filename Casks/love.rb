@@ -1,9 +1,10 @@
 cask 'love' do
-  version '11.1'
-  sha256 '05b22ea15b830623b659d818cc97831479919e9d067f42b8103374128756738e'
+  version '11.3'
+  sha256 '65b0cf09e6be1a63251ec212ebf54c748e0115692d8bd1d116297279449a1ae5'
 
   # bitbucket.org/rude/love was verified as official when first introduced to the cask
   url "https://bitbucket.org/rude/love/downloads/love-#{version}-macos.zip"
+  appcast 'https://love2d.org/'
   name 'LÖVE'
   homepage 'https://love2d.org/'
 

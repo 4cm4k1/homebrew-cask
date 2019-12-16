@@ -7,4 +7,5 @@ cask 'jtool' do
   homepage 'http://newosxbook.com/tools/jtool.html'
 
   binary 'jtool'
+  manpage 'jtool.1'
 end

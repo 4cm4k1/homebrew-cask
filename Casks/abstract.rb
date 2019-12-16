@@ -1,14 +1,13 @@
 cask 'abstract' do
-  version '0.70.0'
-  sha256 '50c24bdab3b7667a526f47fa38135f31bf8944e53367542f4bbb7d5085b90960'
+  version '87.0.0'
+  sha256 '50c4e650bc3c92544b071429ce265561937ae2486547f624d400569f12c5b836'
 
-  # s3.amazonaws.com/propeller-internal-releases was verified as official when first introduced to the cask
-  url "https://s3.amazonaws.com/propeller-internal-releases/Abstract-#{version}.dmg"
+  url "https://downloads.goabstract.com/Abstract-#{version}.dmg"
+  appcast 'https://www.goabstract.com/release-notes/'
   name 'Abstract'
   homepage 'https://www.goabstract.com/'
 
   auto_updates true
-  depends_on macos: '>= :mavericks'
 
   app 'Abstract.app'
 

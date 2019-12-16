@@ -1,16 +1,14 @@
 cask 'gnucash' do
-  version '3.0-1'
-  sha256 'c81f821008ce8d30a611c4b54474527c65c9cac3a0a4024a67189f813844e585'
+  version '3.7,1'
+  sha256 'b687fb0a17b15e735a29be83354409fb8059aebf0bd97079b74eac3dfc4cbeac'
 
   # github.com/Gnucash/gnucash was verified as official when first introduced to the cask
-  url "https://github.com/Gnucash/gnucash/releases/download/#{version.major_minor_patch}/Gnucash-Intel-#{version}.dmg"
-  appcast 'https://github.com/Gnucash/gnucash/releases.atom',
-          checkpoint: '3f2d4f400eddf17bfcff7978527cee1f6399111f875fec14bee472e4026b9a4c'
+  url "https://github.com/Gnucash/gnucash/releases/download/#{version.before_comma}/Gnucash-Intel-#{version.before_comma}-#{version.after_comma}.dmg"
+  appcast 'https://github.com/Gnucash/gnucash/releases.atom'
   name 'GnuCash'
   homepage 'https://www.gnucash.org/'
 
   app 'Gnucash.app'
-  app 'FinanceQuote Update.app'
 
   zap trash: [
                '~/Library/Application Support/Gnucash',

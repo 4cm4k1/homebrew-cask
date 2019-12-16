@@ -1,12 +1,11 @@
 cask 'navicat-data-modeler' do
-  version '2.1.15'
-  sha256 '26e33929023bdcad43c434f362b8e9240de4b0f4fc74ef0835916913095b182d'
+  version '3.0.3'
+  sha256 '1419f0117de9f6d7914c5d21dad34d56d42c857fec9a79cb760182e58391898a'
 
   url "http://download.navicat.com/download/modeler0#{version.major_minor.no_dots}_en.dmg"
+  appcast 'https://navicat.com/en/products/navicat-data-modeler-release-note'
   name 'Navicat Data Modeler'
   homepage 'https://www.navicat.com/products/navicat-data-modeler'
-
-  depends_on macos: '>= :lion'
 
   app 'Navicat Data Modeler.app'
 end

@@ -1,13 +1,14 @@
 cask 'tiled' do
-  version '1.1.5'
-  sha256 'd68a3145e0cb49b92d0579f5b66f3caa44a5cfe3f4a818071b9b118d3e9c2f81'
+  version '1.3.1'
+  sha256 'c22e2eb9906e1b8760367ef08522efee21da2a4c84384344882aac1810443785'
 
   # github.com/bjorn/tiled was verified as official when first introduced to the cask
   url "https://github.com/bjorn/tiled/releases/download/v#{version}/Tiled-#{version}-macos.zip"
-  appcast 'https://github.com/bjorn/tiled/releases.atom',
-          checkpoint: '2aed54160b6bd64b59f4326f6542086946b35ee291218360f2a040e81a8ea67e'
+  appcast 'https://github.com/bjorn/tiled/releases.atom'
   name 'Tiled'
-  homepage 'http://www.mapeditor.org/'
+  homepage 'https://www.mapeditor.org/'
+
+  depends_on macos: '>= :sierra'
 
   app 'Tiled.app'
 end

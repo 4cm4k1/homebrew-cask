@@ -1,12 +1,14 @@
 cask 'protonvpn' do
-  version '0.2.3'
-  sha256 'c7989385b8b586d8b9a7794c2d4c387441473dd523d5458bc0807fb642f262a2'
+  version '1.5.7'
+  sha256 'bc6fe9aa67cf394129bb933410ae57d025729f2341ce8e3ffee75e3c4affd2d7'
 
-  url 'https://protonvpn.com/download/ProtonVPN.dmg'
-  appcast 'https://protonvpn.com/download/macos-update.xml',
-          checkpoint: 'f67fba6ca337d8e3eb64956777d9cad84eb0bfc759db724b60d99aa3b0147e3f'
+  url "https://protonvpn.com/download/ProtonVPN_mac_v#{version}.dmg"
+  appcast 'https://protonvpn.com/download/macos-update2.xml'
   name 'ProtonVPN'
   homepage 'https://protonvpn.com/'
+
+  auto_updates true
+  depends_on macos: '>= :sierra'
 
   app 'ProtonVPN.app'
 
@@ -15,8 +17,8 @@ cask 'protonvpn' do
 
   zap trash: [
                '~/Library/Application Scripts/ch.protonvpn.ProtonVPNStarter',
-               '~/Library/Containers/ch.protonvpn.ProtonVPNStarter',
                '~/Library/Application Scripts/ch.protonvpn.mac',
+               '~/Library/Containers/ch.protonvpn.ProtonVPNStarter',
                '~/Library/Containers/ch.protonvpn.mac',
              ]
 end

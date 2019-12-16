@@ -1,13 +1,14 @@
 cask 'cockatrice' do
-  version '2.5.1,2018-04-16:Decked_Out_Revision_1'
-  sha256 '52bdd2bb95bdfc6befe245d0822d81fe4d560205a436f7a258554c097176ea1d'
+  version '2.7.2,2019-08-31:Faerie_Tales'
+  sha256 '862ba7bdcdfef0ecd17c9b380a0f1fb9f4fcaada203a7fb7af7a837d63eaa5da'
 
   # github.com/Cockatrice/Cockatrice was verified as official when first introduced to the cask
-  url "https://github.com/Cockatrice/Cockatrice/releases/download/#{version.after_comma.before_colon}-Release-#{version.before_comma}/Cockatrice-#{version.after_colon}-#{version.before_comma}.dmg"
-  appcast 'https://github.com/Cockatrice/Cockatrice/releases.atom',
-          checkpoint: 'ba7f4c27bf3cf62a38e2cbb1c51203371d11a762cd2340f1070856c0f9255081'
+  url "https://github.com/Cockatrice/Cockatrice/releases/download/#{version.after_comma.before_colon}-Release-#{version.before_comma}/Cockatrice-#{version.after_colon}-#{version.before_comma}-osx-sierra.dmg"
+  appcast 'https://github.com/Cockatrice/Cockatrice/releases.atom'
   name 'Cockatrice'
-  homepage 'http://www.woogerworks.com/'
+  homepage 'https://cockatrice.github.io/'
+
+  depends_on macos: '>= :sierra'
 
   app 'cockatrice.app'
   app 'oracle.app'

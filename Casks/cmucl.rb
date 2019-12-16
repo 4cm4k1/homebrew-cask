@@ -4,15 +4,14 @@ cask 'cmucl' do
 
   # common-lisp.net/project/cmucl was verified as official when first introduced to the cask
   url "https://common-lisp.net/project/cmucl/downloads/release/#{version}/cmucl-#{version}-x86-darwin.tar.bz2"
-  appcast 'https://common-lisp.net/project/cmucl/downloads/release/',
-          checkpoint: 'cbf92cd84281ac26cff1ae36a7a5e3c9f0d6c4386377b230b606e758624d24c8'
+  appcast 'https://common-lisp.net/project/cmucl/downloads/release/'
   name 'Cmucl'
   homepage 'https://www.cons.org/cmucl/'
 
   binary 'bin/lisp'
+  manpage 'man/man1/cmucl.1'
+  manpage 'man/man1/lisp.1'
   artifact 'lib/cmucl', target: "#{HOMEBREW_PREFIX}/lib/cmucl"
-  artifact 'man/man1/cmucl.1', target: "#{HOMEBREW_PREFIX}/share/man/man1/cmucl.1"
-  artifact 'man/man1/lisp.1', target: "#{HOMEBREW_PREFIX}/share/man/man1/lisp.1"
 
   caveats <<~EOS
     Instructions on using cmucl are available in

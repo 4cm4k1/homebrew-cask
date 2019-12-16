@@ -1,11 +1,10 @@
 cask 'veracrypt' do
-  version '1.22'
-  sha256 'c72257380f5653e6130d4efdd88297b328f29819f4bad82f5563cb906679e2b7'
+  version '1.24-Hotfix1'
+  sha256 '5515766ebac14dcc3e397f0afd24f31f998a4a3c69571ea40b990772fede679c'
 
-  # launchpad.net/veracrypt/trunk/ was verified as official when first introduced to the cask
-  url "https://launchpad.net/veracrypt/trunk/#{version}/+download/VeraCrypt_#{version}.dmg"
-  appcast 'https://github.com/veracrypt/VeraCrypt/releases.atom',
-          checkpoint: '45f2781dc568f6801994fe77ff2492296622e7437c12594f667f71a9335d08c9'
+  # launchpad.net/veracrypt/trunk was verified as official when first introduced to the cask
+  url "https://launchpad.net/veracrypt/trunk/#{version.downcase}/+download/VeraCrypt_#{version}.dmg"
+  appcast 'https://github.com/veracrypt/VeraCrypt/releases.atom'
   name 'VeraCrypt'
   homepage 'https://www.veracrypt.fr/'
 

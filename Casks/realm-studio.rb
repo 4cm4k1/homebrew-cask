@@ -1,12 +1,23 @@
 cask 'realm-studio' do
-  version '1.20.0'
-  sha256 '00bb92950a6a8d7cc163e1867612d4fd8927c6b4f634544394ee5a835a5ee34d'
+  version '3.8.3'
+  sha256 'e07f5b699b0a698a79afc3185a553ca1e81c3d696503c1889778a212015e69f2'
 
   url "https://static.realm.io/downloads/realm-studio/Realm%20Studio-#{version}-mac.zip"
-  appcast 'https://static.realm.io/downloads/realm-studio/latest-mac.yml',
-          checkpoint: '0cc43e29afc58da2c15880e08f68e89c7c628b3f1b15315d3342e2f56eaba709'
+  appcast 'https://static.realm.io/downloads/realm-studio/latest-mac.yml'
   name 'Realm Studio'
   homepage 'https://realm.io/products/realm-studio/'
 
+  auto_updates true
+
   app 'Realm Studio.app'
+
+  zap delete: [
+                '~/Library/Application Support/Realm Studio',
+                '~/Library/Caches/io.realm.realm-studio',
+                '~/Library/Caches/io.realm.realm-studio.ShipIt',
+                '~/Library/Logs/Realm Studio',
+                '~/Library/Preferences/io.realm.realm-studio.helper.plist',
+                '~/Library/Preferences/io.realm.realm-studio.plist',
+                '~/Library/Saved Application State/io.realm.realm-studio.savedState',
+              ]
 end

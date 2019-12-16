@@ -1,58 +1,24 @@
 cask 'wireshark-chmodbpf' do
-  version '2.6.0'
-  sha256 '0d20a6075a7c92ed37cefa19ba9ae128d53ed06038c633043b43dd3f0091cd83'
+  version '3.0.7'
+  sha256 'cb69a2899b5a020fbe7b844388922aa893be1580a27c6747341e6008cb1b4441'
 
   url "https://www.wireshark.org/download/osx/Wireshark%20#{version}%20Intel%2064.dmg"
-  appcast 'https://www.wireshark.org/download/osx/',
-          checkpoint: '1f6d7efa3c25e118f33ced1cbd33a03817a139f859a14f1f7b414e01946cd21e'
+  appcast 'https://www.wireshark.org/download/osx/'
   name 'Wireshark-ChmodBPF'
   homepage 'https://www.wireshark.org/'
 
   conflicts_with cask: 'wireshark'
-  depends_on macos: '>= :mountain_lion'
+  depends_on macos: '>= :sierra'
 
-  pkg "Wireshark #{version} Intel 64.pkg",
-      choices: [
-                 {
-                   'choiceIdentifier' => 'wireshark',
-                   'choiceAttribute'  => 'selected',
-                   'attributeSetting' => 0,
-                 },
-                 {
-                   'choiceIdentifier' => 'chmodbpf',
-                   'choiceAttribute'  => 'selected',
-                   'attributeSetting' => 1,
-                 },
-                 {
-                   'choiceIdentifier' => 'cli',
-                   'choiceAttribute'  => 'selected',
-                   'attributeSetting' => 0,
-                 },
-               ]
-
-  postflight do
-    system_command '/usr/sbin/dseditgroup',
-                   args: [
-                           '-o', 'edit',
-                           '-a', Etc.getpwuid(Process.euid).name,
-                           '-t', 'user',
-                           '--', 'access_bpf'
-                         ],
-                   sudo: true
-  end
+  pkg 'Install ChmodBPF.pkg'
 
   uninstall_preflight do
     set_ownership '/Library/Application Support/Wireshark'
+    system_command '/usr/sbin/dseditgroup', args: ['-o', 'delete', 'access_bpf'], sudo: true
   end
 
   uninstall pkgutil:   'org.wireshark.ChmodBPF.pkg',
-            launchctl: 'org.wireshark.ChmodBPF',
-            script:    {
-                         executable:   '/usr/sbin/dseditgroup',
-                         args:         ['-o', 'delete', 'access_bpf'],
-                         must_succeed: false,
-                         sudo:         true,
-                       }
+            launchctl: 'org.wireshark.ChmodBPF'
 
   caveats do
     reboot

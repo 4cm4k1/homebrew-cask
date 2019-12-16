@@ -1,10 +1,14 @@
 cask 'dash' do
-  version '4.1.7'
-  sha256 'ee856b964f76631aa1782b9247a88d28e96a2cf173301ad596f54e95cb3a2608'
+  if MacOS.version <= :high_sierra
+    version '4.6.7'
+    sha256 'e2b5eb996645b25f12ccae15e24b1b0d8007bc5fed925e14ce7be45a2b693fb6'
+  else
+    version '5.0.2'
+    sha256 '549832787651d92ef15583dfed2b0765f5997203318ff5c3a9d23c9ab5240a24'
+  end
 
   url "https://kapeli.com/downloads/v#{version.major}/Dash.zip"
-  appcast "https://kapeli.com/Dash#{version.major}.xml",
-          checkpoint: '57e2cc6daaaadebe5195dafe625b57970eaf924ad289c76ca71c680dc22c0803'
+  appcast "https://kapeli.com/Dash#{version.major}.xml"
   name 'Dash'
   homepage 'https://kapeli.com/dash'
 

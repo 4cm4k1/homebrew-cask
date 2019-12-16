@@ -1,15 +1,18 @@
 cask 'amazon-music' do
-  version '20180223,0156134c39'
-  sha256 '939a8104c18eefbaaee4d1acaea5d71f276aead3ec771d7a1f7d60617dedf22c'
+  version '7.9.0,20191210:0817399808'
+  sha256 'bbb89096aac3245ef08c59ef277611f137da4a5137f33cb528d9e56058deebd8'
 
   # ssl-images-amazon.com/images was verified as official when first introduced to the cask
-  url "https://images-na.ssl-images-amazon.com/images/G/01/digital/music/morpho/installers/#{version.before_comma}/#{version.after_comma}/AmazonMusicInstaller.dmg"
+  url "https://images-na.ssl-images-amazon.com/images/G/01/digital/music/morpho/installers/#{version.after_comma.before_colon}/#{version.after_colon}/AmazonMusicInstaller.dmg"
+  appcast 'https://www.amazon.com/gp/dmusic/desktop/downloadPlayer',
+          configuration: "#{version.after_comma.before_colon}/#{version.after_colon}"
   name 'Amazon Music'
   homepage 'https://www.amazon.com/musicapps'
 
+  auto_updates true
+
   installer script: {
-                      executable: 'Amazon Music Installer.app/Contents/MacOS/osx-intel',
-                      args:       ['--unattendedmodeui', 'none'],
+                      executable: 'Amazon Music Installer.app/Contents/MacOS/installbuilder.sh',
                     }
 
   uninstall quit:      [

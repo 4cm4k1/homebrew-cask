@@ -1,12 +1,13 @@
 cask 'xit' do
-  version '1.0b8'
-  sha256 'd75ff6baa6743be50edcfb4e5c1dab12dba6759e397cf694eefe3885be231138'
+  version '1.0b13'
+  sha256 '0bab547a6540128b507e8e44794cc8f556407dedd80fb2bab2a439ba76a78d2e'
 
-  url "https://github.com/Uncommon/Xit/releases/download/#{version}/Xit.zip"
-  appcast 'https://github.com/Uncommon/Xit/releases.atom',
-          checkpoint: '124eb7a3ebfac3e00781c69364aefb825323d7b81cb3c8c7bdc661d0be06aef2'
+  url "https://github.com/Uncommon/Xit/releases/download/#{version}/Xit.#{version}.zip"
+  appcast 'https://github.com/Uncommon/Xit/releases.atom'
   name 'Xit'
   homepage 'https://github.com/Uncommon/Xit'
+
+  depends_on macos: '>= :mojave'
 
   app 'Xit.app'
 
