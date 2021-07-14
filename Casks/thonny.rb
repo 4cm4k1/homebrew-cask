@@ -1,11 +1,11 @@
 cask "thonny" do
-  version "3.3.3"
-  sha256 "853eb0d7b5e7c4066cd976aea2ac26dd4a01353f61adc98a8b71cdfa827db4d4"
+  version "3.3.10"
+  sha256 "986ea275c92e04e36d7d7bbe752ad355e47de1952d917c8afbfff201c8b328f8"
 
   url "https://github.com/thonny/thonny/releases/download/v#{version}/thonny-#{version}.pkg",
       verified: "github.com/thonny/thonny/"
-  appcast "https://github.com/thonny/thonny/releases.atom"
   name "Thonny"
+  desc "Python IDE for beginners"
   homepage "https://thonny.org/"
 
   conflicts_with cask: "thonny-xxl"
